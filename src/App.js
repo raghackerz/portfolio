@@ -1,12 +1,23 @@
+import React, {useState, useEffect} from 'react'
+
+//Pages
+
+//Components
+import AnimatedRoutes from './components/AnimatedRoutes';
+
+//Router
+import {BrowserRouter as Router} from 'react-router-dom';
+
+//Styles
 import { GlobalStyle } from './GlobalStyle';
-import LoadingScreen from './components/LoadingScreen';
+
 
 const App = () => {
   return (
-    <>
+    <Router>
+      <AnimatedRoutes/>
       <GlobalStyle />
-      <LoadingScreen />
-    </>
+    </Router>
   );
 }
 
