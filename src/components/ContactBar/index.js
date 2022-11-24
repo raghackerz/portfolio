@@ -9,13 +9,13 @@ import LINKEDIN from '../../linkedin.png';
 import GITHUB from '../../github.png';
 import TWITTER from '../../twitter.png';
 
-const ContactBar = () => {
+const ContactBar = ({ exit }) => {
   return(
     <Wrapper>
-      <Image src={MAIL} draggable='false'/>
-      <Image src={LINKEDIN} draggable='false'/>
-      <Image src={GITHUB} draggable='false'/>
-      <Image src={TWITTER} draggable='false'/>
+      <Image src={MAIL} draggable='false' exit={exit} />
+      <Image src={LINKEDIN} draggable='false' exit={exit}/>
+      <Image src={GITHUB} draggable='false' exit={exit}/>
+      <Image src={TWITTER} draggable='false' exit={exit}/>
     </Wrapper>
   );
 }

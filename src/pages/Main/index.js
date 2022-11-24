@@ -10,6 +10,7 @@ import Background from '../../components/Background';
 import Navbar from '../../components/Navbar';
 import Icon from '../../components/Icon';
 import ContactBar from '../../components/ContactBar';
+import Projects from '../../components/Projects';
 
 //Navigation
 //import {Link} from 'react-router-dom';
@@ -20,6 +21,7 @@ import { motion } from "framer-motion";
 
 const Main = () => {
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(2);
 
   useEffect(() => {
     setTimeout(()=>setLoading(false),500);
@@ -39,11 +41,16 @@ const Main = () => {
       transition = {{duration: 0.5,}}
     />
     {!loading &&
-      <div onWheel={(event) => console.log(event.deltaX + " " + event.deltaY)} >
-        <Background />
+      <div onScroll={(event) => Math.abs(event.deltaY) > 0 && setPage(2.5)} onWheel={(event) => Math.abs(event.deltaY) > 0 && setPage(2.5)} >
+        <Background exit={page === 1.5}/>
         <Navbar elements={navigationElements} />
         <Icon />
-        <ContactBar />
+        {page < 2 ? 
+            <ContactBar exit={page === 1.5}/>
+          : page < 3 ?
+            <Projects/>
+          : null
+        }
       </div>
     }
     <LoadingScreen onClick={()=>{setLoading(false)}} loading={loading} />

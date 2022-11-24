@@ -14,11 +14,11 @@ export const Wrapper = styled.div`
   animation: entry var(--duration) cubic-bezier(.01,1.18,.38,.98);
 
   ${props =>
-      props.exit ?
+    props.exit ?
       css`
         animation: exit var(--duration) ease-in-out;
         animation-fill-mode: forwards;
-      ` : 
+      ` :
       css`
         animation: entry var(--duration) cubic-bezier(.01,1.18,.38,.98);
       `};

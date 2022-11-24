@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 //Pages
 
@@ -6,7 +6,7 @@ import React, {useState, useEffect} from 'react'
 import AnimatedRoutes from './components/AnimatedRoutes';
 
 //Router
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 //Styles
 import { GlobalStyle } from './GlobalStyle';
@@ -15,7 +15,7 @@ import { GlobalStyle } from './GlobalStyle';
 const App = () => {
   return (
     <Router>
-      <AnimatedRoutes/>
+      <AnimatedRoutes />
       <GlobalStyle />
     </Router>
   );

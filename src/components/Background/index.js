@@ -1,7 +1,7 @@
 import React, { useState, /*useEffect*/ } from 'react';
 
 //Styles
-import { Wrapper, Circle, ImageWrapper, Image,} from './Background.styles';
+import { Wrapper, Circle, ImageWrapper, Image, Projector} from './Background.styles';
 
 //components
 import Stars from '../Stars';
@@ -10,18 +10,19 @@ import Stars from '../Stars';
 import IMG from '../../skull1.png';
 
 
-const Background = () => {
+const Background = ({ exit }) => {
   const [pointerPosition, setPointerPosition] = useState([window.innerWidth/2,window.innerHeight/2]);
   return (
       <Wrapper onMouseMove={(e)=>setPointerPosition([e.clientX,e.clientY])} >
-        <Circle size='50vw' child='1' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
+        <Stars pointerPosition={pointerPosition}/>
+    <Circle size='50vw' child='1' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='45vw' child='2' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='40vw' child='3' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='35vw' child='4' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='30vw' child='5' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='25vw' child='6' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}/>
         <Circle size='20vw' child='7' pointerPositionY={pointerPosition[1]} pointerPositionX={pointerPosition[0]} speed={2}>
-          <ImageWrapper>
+          <ImageWrapper exit={exit}>
             <Image src={IMG} draggable="false" />
             <svg>
               <filter id="transmissionerror">
@@ -39,7 +40,6 @@ const Background = () => {
             </svg>
           </ImageWrapper>
         </Circle>
-        <Stars pointerPosition={pointerPosition}/>
       </Wrapper>
   );
 };
